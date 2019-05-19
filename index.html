@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="style/main.css">
+        <script src="scripts/jquery-3.4.1.min.js" charset="utf-8"></script>
+        <script src="scripts/RPSLS.js" charset="utf-8"></script>
+        <script src="scripts/main.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <!-- Welcome screen - introduction, rules and game modes -->
+        <div id="welcome_section" class="">
+            <h1 id="title">Welcome to RPSLS!</h1>
+            <input class="game_butn" type="button" name="" value="normal">
+            <input class="game_butn" type="button" name="" value="arcade">
+
+            <h2>What is this?</h2>
+
+            <p id="game_descrp">
+                This is an implementation of the game "rock, paper, scissors, lizard,
+                spock", a variation of the original game popularized by its appereance
+                in an
+                <a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock" target="_blank">
+                    episode of the big-bang theory.
+                </a>
+             </p>
+            <h2 class="info_header">Rules</h2>
+            <p id="rules">
+                <a href="https://youtu.be/x5Q6-wMx-K8?t=19" target="_blank">
+                    well it's simple...<br>
+                </a>
+                Scissors cuts Paper<br>
+                Paper covers Rock<br>
+                Rock crushes Lizard<br>
+                Lizard poisons Spock<br>
+                Spock smashes Scissors<br>
+                Scissors decapitates Lizard<br>
+                Lizard eats Paper<br>
+                Paper disproves Spock<br>
+                Spock vaporizes Rock<br>
+                (and as it always has)<br>Rock crushes Scissors<br>
+            </p>
+            <h2 class="info_header">How to Play</h2>
+            <p>
+                To play click either of the buttons at the top.
+                There are two game-modes avaible, Normal and Arcade.<br><br>
+                In normal mode the user selects their piece and then
+                the opponents piece is randomly generated and the results shown.<br><br>
+                In arcade mode the user selects the difficulity level (dictating how fast
+                the game will be), random pieces are then generated and pop-up on the screen,
+                the player must use the keys (1-5 or A-G) to select a piece to defeat the
+                opponent; every time they select a correct piece the score is increased, but the
+                game also gets faster. The game ends when the player guesses an incorrect piece.
+             </p>
+            <!-- TODO: as an alt explaination link to big bang clip -->
+        </div>
+        <!-- Displays options for player in normal mode -->
+        <div id="player_options" class="hidden">
+            <div class="option" value="1">
+                <div class="img" id="rock">
+                    <!-- Icon made by https://www.freepik.com/ from www.flaticon.com  -->
+                </div>
+                <h1 class="title">Rock (1)</h1>
+            </div>
+            <div class="option" value="2">
+                <div class="img" id="paper">
+                    <!-- Icon made by https://www.freepik.com/ from www.flaticon.com  -->
+                </div>
+                <h1 class="title">Paper (2)</h1>
+            </div>
+            <div class="option" value="3">
+                <div class="img" id="scissors">
+                    <!-- Icon made by https://www.freepik.com/ from www.flaticon.com  -->
+                </div>
+                <h1 class="title">Scissors (3)</h1>
+            </div>
+            <div class="option" value="4">
+                <div class="img" id="lizard">
+                    <!-- Icon made by https://www.freepik.com/ from www.flaticon.com  -->
+                </div>
+                <h1 class="title">Lizard (4)</h1>
+            </div>
+            <div class="option" value="5">
+                <div class="img" id="spock">
+                    <!-- Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com  -->
+                </div>
+                <h1 class="title">Spock (5)</h1>
+            </div>
+        </div>
+        <!-- Arcade game mode -->
+        <div id="arcade_mode" class="hidden">
+            <div id="timer">
+                <progress id="arcade_timer" value="0" max="100">30s</progress>
+            </div>
+            <div id="current_piece">
+                <div class="option">
+                    <div class="img" id="rock">
+                        <!-- Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com  -->
+                    </div>
+                    <h1 class="title">Spock</h1>
+                </div>
+            </div>
+            <div id="selection">
+                <div class="option" value="1">
+                    <div class="img" id="rock">
+                        <!-- Icon made by https://www.freepik.com/ from www.flaticon.com  -->
+                    </div>
+                    <h1 class="title">Rock (1)</h1>
+                </div>
+                <div class="option" value="2">
+                    <div class="img" id="paper">
+                        <!-- Icon made by https://www.freepik.com/ from www.flaticon.com  -->
+                    </div>
+                    <h1 class="title">Paper (2)</h1>
+                </div>
+                <div class="option" value="3">
+                    <div class="img" id="scissors">
+                        <!-- Icon made by https://www.freepik.com/ from www.flaticon.com  -->
+                    </div>
+                    <h1 class="title">Scissors (3)</h1>
+                </div>
+                <div class="option" value="4">
+                    <div class="img" id="lizard">
+                        <!-- Icon made by https://www.freepik.com/ from www.flaticon.com  -->
+                    </div>
+                    <h1 class="title">Lizard (4)</h1>
+                </div>
+                <div class="option" value="5">
+                    <div class="img" id="spock">
+                        <!-- Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com  -->
+                    </div>
+                    <h1 class="title">Spock (5)</h1>
+                </div>
+            </div>
+            <h1 id="score">
+                Score: 0
+            </h1>
+        </div>
+        <!-- Results - winner or loser for normal and score for arcade -->
+        <div id="game_results" class="hidden">
+            <h1 id="title">Game Over</h1>
+            <div class="option" id="player">
+                <div class="img" id="spock">
+                    <!-- Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
+                </div>
+                <h1 class="title">You</h1>
+            </div>
+            <div class="option" id="opponent">
+                <div class="img" id="rock">
+                    <!-- Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
+                </div>
+                <h1 class="title">Computer</h1>
+            </div>
+            <p id="results">You scored 100 Points!</p>
+            <input class="game_butn" type="button" name="" value="normal">
+            <input class="game_butn" type="button" name="" value="arcade">
+            <input class="main_menu_butn" type="button" name="" value="Main Menu">
+
+
+            <!-- audio used for result sounds, see SoundManager function in main.js -->
+            <audio id="win_sound" src="sounds/winnerWinner.mp3"></audio>
+            <audio id="lose_sound" src="sounds/youLose.mp3"></audio>
+            <audio id="draw_sound" src="sounds/.mp3"></audio>
+            <audio id="game_over_sound" src="sounds/gameOver.mp3"></audio>
+        </div>
+    </body>
+</html>
